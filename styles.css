@@ -1,7 +1,3 @@
-/* ============================================================
-   Bit & Byte – styles.css
-   ============================================================ */
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -13,9 +9,6 @@
 }
 
 /* ---------- Page ---------- */
-
-/* The black lives on <html> so the ASCII canvas (which sits behind
-   everything) shows through the transparent <body>. */
 html {
     background-color: var(--black);
 }
@@ -163,16 +156,21 @@ body {
 /* ---------- Tablets and phones: stacked and centered ---------- */
 
 @media (max-width: 900px) {
+    html, body { overflow-x: hidden; }
+
     .container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
         gap: 2rem;
         padding: 3rem 1rem;
         text-align: center;
+        width: 100%;
     }
 
     .photo-section {
         display: flex;
         justify-content: center;
+        width: 100%;
     }
 
     .photo-frame {
@@ -180,14 +178,21 @@ body {
         margin: 0 auto;
     }
 
-    .about-section { padding-left: 0; }
+    .about-section {
+        padding-left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bio { max-width: 40rem; }
 
     .about-section h1 { font-size: 2rem; }
 
     .skills { justify-content: center; }
 
-    /* !important because this row has inline styles in the HTML */
-    .social-links { justify-content: center !important; }
+    .social-links { justify-content: center !important; width: 100%; }
 }
 
 /* ---------- Small phones ---------- */
