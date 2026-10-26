@@ -77,7 +77,7 @@ function animate() {
     const dims = getCanvasDimensions();
     
     // Clear with slight fade for smooth trails
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.09)';
     ctx.fillRect(0, 0, dims.width, dims.height);
 
     animationFrameId = requestAnimationFrame(animate);
@@ -114,7 +114,7 @@ function startTypingEffect() {
         const y = Math.random() * canvas.height;
         
         ctx.font = '12px monospace';
-        ctx.fillStyle = 'rgba(38, 105, 217, 0.08)';
+        ctx.fillStyle = 'rgba(85, 107, 47, 0.3)';
         ctx.fillText(currentWord, x, y);
         
         wordIndex++;
