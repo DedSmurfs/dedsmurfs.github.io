@@ -1,3 +1,7 @@
+/* ============================================================
+   Bit & Byte – styles.css
+   ============================================================ */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -8,9 +12,17 @@
     --olive: #556B2F;
 }
 
+/* ---------- Page ---------- */
+
+/* The black lives on <html> so the ASCII canvas (which sits behind
+   everything) shows through the transparent <body>. */
+html {
+    background-color: var(--black);
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--deep-blue);
+    background-color: transparent;
     color: var(--olive);
     min-height: 100vh;
     overflow-x: hidden;
@@ -25,6 +37,8 @@ body {
     opacity: 1;
 }
 
+/* ---------- Layout ---------- */
+
 .container {
     position: relative;
     z-index: 1;
@@ -35,6 +49,8 @@ body {
     grid-template-columns: 1fr 1.2fr;
     gap: 4rem;
 }
+
+/* ---------- Photo ---------- */
 
 .photo-section { align-items: center; justify-content: center; }
 
@@ -57,6 +73,8 @@ body {
     border-radius: 50%;
     object-fit: cover;
 }
+
+/* ---------- About text ---------- */
 
 .about-section { padding-left: 2rem; }
 
@@ -84,6 +102,8 @@ body {
     opacity: 0.9;
 }
 
+/* ---------- Skill tags ---------- */
+
 .skills {
     display: flex;
     gap: 0.5rem;
@@ -107,6 +127,8 @@ body {
     color: var(--black);
     transform: translateY(-2px);
 }
+
+/* ---------- Social links ---------- */
 
 .social-link {
     display: flex; align-items: center; justify-content: center;
@@ -138,22 +160,44 @@ body {
     transform: translateY(-5px) rotate(5deg);
 }
 
+/* ---------- Tablets and phones: stacked and centered ---------- */
+
 @media (max-width: 900px) {
     .container {
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 3rem 1rem;
+        text-align: center;
     }
-    .photo-section { justify-content: flex-start; }
+
+    .photo-section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .photo-frame {
+        width: 250px; height: 250px;
+        margin: 0 auto;
+    }
+
     .about-section { padding-left: 0; }
-    .photo-frame { width: 250px; height: 250px; }
-    h1 { font-size: 2rem; }
+
+    .about-section h1 { font-size: 2rem; }
+
+    .skills { justify-content: center; }
+
+    /* !important because this row has inline styles in the HTML */
+    .social-links { justify-content: center !important; }
 }
+
+/* ---------- Small phones ---------- */
 
 @media (max-width: 480px) {
     .photo-frame { width: 200px; height: 200px; }
     .social-link { width: 50px; height: 50px; font-size: 1.2rem; }
 }
+
+/* ---------- Loading screen ---------- */
 
 .loading {
     position: fixed;
