@@ -3,9 +3,10 @@
     const SETTINGS = {
         cellSizeDesktop: 18,      // size of each character in pixels
         cellSizeMobile: 14,
-        cursorRadius: 170,        // how far the cursor's effect reaches (pixels)
-        pushStrength: 10,         // how far characters get nudged away from the cursor
-        trailFade: 0.93,          // closer to 1 = longer glowing trail (0.8 – 0.97)
+        cursorRadius: 90,         // how far the cursor's effect reaches (pixels)
+        pushStrength: 4,          // how far characters get nudged away from the cursor
+        trailFade: 0.85,          // closer to 1 = longer glowing trail (0.8 – 0.97)
+        cursorIntensity: 0.55,    // brightness of the cursor glow (0 = invisible, 1 = full)
         rippleSpeed: 7,           // how fast click/tap ripples expand
         loadingScreenDelay: 800,  // ms before the loading screen fades out
         backgroundColor: '#000000', // page background (your --black)
@@ -268,10 +269,11 @@
                 const h = heat[i];
                 const streak = rain[i];
 
-                if (h > 0.06) {
-                    // Near cursor / ripple: orange -> lavender, flickering symbols
+                if (h > 0.1) {
+                    // Near cursor / ripple: soft orange glow, flickering symbols
                     const ch = GLYPHS[(i * 7 + flicker * 3) % GLYPHS.length];
-                    ctx.fillStyle = rgba(mix(COLORS.orange, COLORS.lavender, h * h), 0.35 + 0.65 * h);
+                    ctx.fillStyle = rgba(mix(COLORS.orange, COLORS.lavender, h * h * 0.4),
+                        (0.2 + 0.8 * h) * SETTINGS.cursorIntensity);
                     ctx.fillText(ch, x, y);
 
                 } else if (streak > 0.04) {
