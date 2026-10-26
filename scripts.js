@@ -8,7 +8,8 @@
         trailFade: 0.93,          // closer to 1 = longer glowing trail (0.8 – 0.97)
         waveSpeed: 1,             // speed of the idle background animation
         rippleSpeed: 7,           // how fast click/tap ripples expand
-        loadingScreenDelay: 800   // ms before the loading screen fades out
+        loadingScreenDelay: 800,  // ms before the loading screen fades out
+        backgroundColor: '#000000' // page background (your --black)
     };
 
     // Theme colours (from your style.css), as [R, G, B]
@@ -45,6 +46,12 @@
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '-1';
+
+    // Solid black page background. The canvas sits behind your content,
+    // so the page itself has to be black and the body see-through.
+    document.documentElement.style.backgroundColor = SETTINGS.backgroundColor;
+    document.body.style.backgroundColor = 'transparent';
 
     let width = 0, height = 0, cell = 18, cols = 0, rows = 0;
     let heat = new Float32Array(0);   // glow level of each character cell
