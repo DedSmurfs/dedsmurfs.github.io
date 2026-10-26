@@ -14,6 +14,7 @@
 
     // Theme colours (from your style.css), as [R, G, B]
     const COLORS = {
+        black: [1, 1, 1],           // #000000
         deepBlue: [35, 61, 77],     // #233D4D
         orange:   [254, 127, 45],   // #FE7F2D
         lavender: [234, 236, 240],  // #EAECF0
@@ -200,7 +201,7 @@
                     const idx = Math.floor(wave * (RAMP.length - 1));
                     if (idx < 2) continue;   // skip blank / near-blank cells
                     const ch = RAMP[idx];
-                    ctx.fillStyle = rgba(mix(COLORS.deepBlue, COLORS.olive, wave), 0.30 + 0.45 * wave);
+                    ctx.fillStyle = rgba(mix(COLORS.black, COLORS.olive, wave), 0.30 + 0.45 * wave);
                     ctx.fillText(ch, x, y);
                 }
             }
