@@ -5,12 +5,13 @@
     --deep-blue: #233D4D;
     --orange: #FE7F2D;
     --lavender: #EAECF0;
+    --olive: #556B2F;
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--black);
-    color: var(--deep-blue);
+    background-color: var(--deep-blue);
+    color: var(--olive);
     min-height: 100vh;
     overflow-x: hidden;
 }
